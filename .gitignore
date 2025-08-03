@@ -1,0 +1,8 @@
+talos-dev/terraform/vars.tfvars
+talos-dev/terraform/terraform.tfstate
+CHANGELOG.md
+LICENSE
+.terraform
+talos-dev/terraform/.terraform.tfstate.lock.info
+talos-dev/terraform/.terraform.lock.hcl
+talos-dev/terraform/terraform.tfstate.backup
