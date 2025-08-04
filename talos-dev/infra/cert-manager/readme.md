@@ -1,0 +1,1 @@
+kubectl create secret generic cloudflare-api-key-secret --from-literal api-key=<api-token> -n cert-manager
