@@ -203,7 +203,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_01" {
   disk {
     datastore_id = "${var.storage_name}"
     interface    = "virtio0"
-    size         = 20
+    size         = 250
   }
 
   operating_system {
@@ -260,7 +260,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_02" {
   disk {
     datastore_id = "${var.storage_name}"
     interface    = "virtio0"
-    size         = 20
+    size         = 250
   }
 
   operating_system {
@@ -317,7 +317,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_03" {
   disk {
     datastore_id = "${var.storage_name}"
     interface    = "virtio0"
-    size         = 20
+    size         = 250
   }
 
   operating_system {
