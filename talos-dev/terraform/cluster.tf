@@ -24,7 +24,17 @@ resource "talos_machine_configuration_apply" "cp_config_apply" {
       machine = {
         install = {
           disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515:v1.10.5" 
+          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
+      kubelet = {
+        extraMounts = {
+          destination = "/var/lib/longhorn"
+          type = "bind"
+          source = "/var/lib/longhorn"
+          options = {
+            bind
+          }
+        }
+      }
         }
       }
     })
@@ -42,7 +52,7 @@ resource "talos_machine_configuration_apply" "cp02_config_apply" {
       machine = {
         install = {
           disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515:v1.10.5" 
+          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
         }
       }
     })
@@ -60,7 +70,7 @@ resource "talos_machine_configuration_apply" "cp03_config_apply" {
       machine = {
         install = {
           disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515:v1.10.5" 
+          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
         }
       }
     })
@@ -85,7 +95,7 @@ resource "talos_machine_configuration_apply" "worker_config_apply" {
       machine = {
         install = {
           disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515:v1.10.5" 
+          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
         }
       }
     })
@@ -103,7 +113,7 @@ resource "talos_machine_configuration_apply" "worker2_config_apply" {
       machine = {
         install = {
           disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515:v1.10.5" 
+          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
         }
       }
     })
@@ -121,7 +131,7 @@ resource "talos_machine_configuration_apply" "worker3_config_apply" {
       machine = {
         install = {
           disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515:v1.10.5" 
+          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
         }
       }
     })
