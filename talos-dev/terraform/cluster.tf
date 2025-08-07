@@ -25,16 +25,6 @@ resource "talos_machine_configuration_apply" "cp_config_apply" {
         install = {
           disk = "/dev/vda"
           image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
-      kubelet = {
-        extraMounts = {
-          destination = "/var/lib/longhorn"
-          type = "bind"
-          source = "/var/lib/longhorn"
-          options = {
-            bind
-          }
-        }
-      }
         }
       }
     })
