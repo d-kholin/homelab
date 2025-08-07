@@ -1,0 +1,62 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft01
+  namespace: default
+  labels:
+    app: minecraft01
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft01
+  template:
+    metadata:
+      labels:
+        app: minecraft01
+    spec:
+      containers:
+      - name: minecraft01
+        image: itzg/minecraft-server:latest
+        ports:
+        - containerPort: 25565
+        volumeMounts:
+        - name: volv
+          mountPath: /data
+      volumes:
+      - name: volv
+        persistentVolumeClaim:
+          claimName: longhorn-minecraft01-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minecraft01
+  namespace: default
+  labels:
+    app: minecraft01
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 172.18.0.65
+  ports:
+  - port: 25565
+    targetPort: 25565
+    protocol: TCP
+  selector:
+    app: minecraft01
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: longhorn-minecraft01-pvc
+  namespace: default
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: 4Gi
