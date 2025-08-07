@@ -5,7 +5,7 @@ resource "proxmox_virtual_environment_vm" "talos_cp_01" {
   node_name   = "pve4"
   on_boot     = true
   pool_id     = "talos-dev"
-
+  boot_order  = ["virtio,ide3"]
   cpu {
     cores = 2
     type = "host"
@@ -62,7 +62,7 @@ resource "proxmox_virtual_environment_vm" "talos_cp_02" {
   node_name   = "pve5"
   on_boot     = true
   pool_id     = "talos-dev"
-
+  boot_order  = ["virtio,ide3"]
   cpu {
     cores = 2
     type = "host"
@@ -119,7 +119,7 @@ resource "proxmox_virtual_environment_vm" "talos_cp_03" {
   node_name   = "pve6"
   on_boot     = true
   pool_id     = "talos-dev"
-
+  boot_order  = ["virtio,ide3"]
   cpu {
     cores = 2
     type = "host"
@@ -177,7 +177,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_01" {
   node_name   = "pve4"
   on_boot     = true
   pool_id     = "talos-dev"
-
+  boot_order  = ["virtio,ide3"]
   cpu {
     cores = 4
     type = "host"
@@ -234,7 +234,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_02" {
   node_name   = "pve5"
   on_boot     = true
   pool_id     = "talos-dev"
-
+  boot_order  = ["virtio,ide3"]
   cpu {
     cores = 4
     type = "host"
@@ -291,7 +291,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_03" {
   node_name   = "pve6"
   on_boot     = true
   pool_id     = "talos-dev"
-
+  boot_order  = ["virtio,ide3"]
   cpu {
     cores = 4
     type = "host"
