@@ -5,7 +5,7 @@ resource "proxmox_virtual_environment_vm" "talos_cp_01" {
   node_name   = "pve4"
   on_boot     = true
   pool_id     = "talos-dev"
-  boot_order  = ["virtio,ide3"]
+  boot_order  = ["virtio0","ide3"]
   cpu {
     cores = 2
     type = "host"
@@ -27,7 +27,8 @@ resource "proxmox_virtual_environment_vm" "talos_cp_01" {
 
   cdrom {
     enabled = true
-    file_id = proxmox_virtual_environment_download_file.talos_nocloud_image.id
+    #file_id = proxmox_virtual_environment_download_file.talos_nocloud_image.id
+    file_id = "local:iso/talos-v1.10.6-nocloud-amd64.img"
   }
   disk {
     datastore_id = "${var.storage_name}"
@@ -62,7 +63,7 @@ resource "proxmox_virtual_environment_vm" "talos_cp_02" {
   node_name   = "pve5"
   on_boot     = true
   pool_id     = "talos-dev"
-  boot_order  = ["virtio,ide3"]
+  boot_order  = ["virtio0","ide3"]
   cpu {
     cores = 2
     type = "host"
@@ -84,7 +85,8 @@ resource "proxmox_virtual_environment_vm" "talos_cp_02" {
 
   cdrom {
     enabled = true
-    file_id = proxmox_virtual_environment_download_file.talos_nocloud_image5.id
+    #file_id = proxmox_virtual_environment_download_file.talos_nocloud_image.id
+    file_id = "local:iso/talos-v1.10.6-nocloud-amd64.img"
   }
   disk {
     datastore_id = "${var.storage_name}"
@@ -119,7 +121,7 @@ resource "proxmox_virtual_environment_vm" "talos_cp_03" {
   node_name   = "pve6"
   on_boot     = true
   pool_id     = "talos-dev"
-  boot_order  = ["virtio,ide3"]
+  boot_order  = ["virtio0","ide3"]
   cpu {
     cores = 2
     type = "host"
@@ -141,7 +143,8 @@ resource "proxmox_virtual_environment_vm" "talos_cp_03" {
 
   cdrom {
     enabled = true
-    file_id = proxmox_virtual_environment_download_file.talos_nocloud_image6.id
+    #file_id = proxmox_virtual_environment_download_file.talos_nocloud_image.id
+    file_id = "local:iso/talos-v1.10.6-nocloud-amd64.img"
   }
   disk {
     datastore_id = "${var.storage_name}"
@@ -177,7 +180,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_01" {
   node_name   = "pve4"
   on_boot     = true
   pool_id     = "talos-dev"
-  boot_order  = ["virtio,ide3"]
+  boot_order  = ["virtio0","ide3"]
   cpu {
     cores = 4
     type = "host"
@@ -198,7 +201,8 @@ resource "proxmox_virtual_environment_vm" "talos_worker_01" {
 
   cdrom {
     enabled = true
-    file_id = proxmox_virtual_environment_download_file.talos_nocloud_image.id
+    #file_id = proxmox_virtual_environment_download_file.talos_nocloud_image.id
+    file_id = "local:iso/talos-v1.10.6-nocloud-amd64.img"
   }
   disk {
     datastore_id = "${var.storage_name}"
@@ -234,7 +238,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_02" {
   node_name   = "pve5"
   on_boot     = true
   pool_id     = "talos-dev"
-  boot_order  = ["virtio,ide3"]
+  boot_order  = ["virtio0","ide3"]
   cpu {
     cores = 4
     type = "host"
@@ -255,7 +259,8 @@ resource "proxmox_virtual_environment_vm" "talos_worker_02" {
 
   cdrom {
     enabled = true
-    file_id = proxmox_virtual_environment_download_file.talos_nocloud_image.id
+    #file_id = proxmox_virtual_environment_download_file.talos_nocloud_image.id
+    file_id = "local:iso/talos-v1.10.6-nocloud-amd64.img"
   }
   disk {
     datastore_id = "${var.storage_name}"
@@ -291,7 +296,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_03" {
   node_name   = "pve6"
   on_boot     = true
   pool_id     = "talos-dev"
-  boot_order  = ["virtio,ide3"]
+  boot_order  = ["virtio0","ide3"]
   cpu {
     cores = 4
     type = "host"
@@ -312,7 +317,8 @@ resource "proxmox_virtual_environment_vm" "talos_worker_03" {
 
   cdrom {
     enabled = true
-    file_id = proxmox_virtual_environment_download_file.talos_nocloud_image.id
+    #file_id = proxmox_virtual_environment_download_file.talos_nocloud_image.id
+    file_id = "local:iso/talos-v1.10.6-nocloud-amd64.img"
   }
   disk {
     datastore_id = "${var.storage_name}"
