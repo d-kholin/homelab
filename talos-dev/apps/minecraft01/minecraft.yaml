@@ -21,6 +21,9 @@ spec:
         image: itzg/minecraft-server:latest
         ports:
         - containerPort: 25565
+        env:
+        - name: EULA
+          value: "TRUE"
         volumeMounts:
         - name: volv
           mountPath: /data
