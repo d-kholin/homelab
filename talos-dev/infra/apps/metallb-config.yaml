@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/d-kholin/homelab/tree/main/talos-dev/infra/metallb
+    repoURL: https://github.com/d-kholin/homelab.git
     targetRevision: main
     path: talos-dev/infra/metallb
   destination:
