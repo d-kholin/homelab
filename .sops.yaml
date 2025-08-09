@@ -1,0 +1,17 @@
+creation_rules:
+  - path_regex: '(?:^|.*/)(?:secrets/)?[^/]+\.secret\.ya?ml$'
+    encrypted_regex: '^(data|stringData)$'
+    key_groups:
+      - age:
+          - age1sphkn2hm8tgvnkfzhue7wns7kn9fxufyfkqlrgc6r3vmapsnnuhsucghfw
+          
+  - path_regex: '(?:^|.*/)(?:secrets/)?[^/]+\.secret\.txt$'
+    key_groups:
+      - age:
+          - age1sphkn2hm8tgvnkfzhue7wns7kn9fxufyfkqlrgc6r3vmapsnnuhsucghfw
+  # (optional) if you also keep Kubernetes Secret YAMLs in Git and only want data fields encrypted
+  - path_regex: 'secrets/.*\.secret\.ya?ml$'
+    encrypted_regex: '^(data|stringData)$'
+    key_groups:
+      - age:
+          - age1sphkn2hm8tgvnkfzhue7wns7kn9fxufyfkqlrgc6r3vmapsnnuhsucghfw
