@@ -42,3 +42,11 @@ variable "storage_name" {
   default = "SSD"
   
 }
+
+variable "username" {
+  type = string
+}
+
+variable "password" {
+  type = string
+}
