@@ -27,6 +27,7 @@ resource "helm_release" "argocd" {
 
 # Seed app of apps
 resource "kubernetes_manifest" "root_app" {
+  count      = var.enable_root_app ? 1 : 0
   depends_on = [helm_release.argocd]
   manifest = {
     apiVersion = "argoproj.io/v1alpha1"
