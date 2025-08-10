@@ -1,0 +1,2 @@
+Use the following command to seal the secret for cloudflare.
+`kubeseal --scope namespace-wide -f .\cloudflare-api-token.secret.yaml -w sealed.cloudflare-api-token.secret.yaml -n default --controller-name sealed-secrets --controller-namespace kube-system`
