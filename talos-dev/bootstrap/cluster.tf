@@ -19,16 +19,26 @@ resource "talos_machine_configuration_apply" "cp_config_apply" {
   machine_configuration_input = data.talos_machine_configuration.machineconfig_cp.machine_configuration
   count                       = 1
   node                        = var.talos_cp_01_ip_addr
-  config_patches = [
-    yamlencode({
-      machine = {
-        install = {
-          disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
-        }
+config_patches = [
+  yamlencode({
+    machine = {
+      install = {
+        disk  = "/dev/vda"
+        image = "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5"
       }
-    })
-  ]
+      kubelet = {
+        extraMounts = [
+          {
+            destination = "/var/lib/longhorn"
+            type        = "bind"
+            source      = "/var/lib/longhorn"
+            options     = ["bind", "rshared", "rw"]
+          }
+        ]
+      }
+    }
+  })
+]
 }
 
 resource "talos_machine_configuration_apply" "cp02_config_apply" {
@@ -37,16 +47,26 @@ resource "talos_machine_configuration_apply" "cp02_config_apply" {
   machine_configuration_input = data.talos_machine_configuration.machineconfig_cp.machine_configuration
   count                       = 1
   node                        = var.talos_cp_02_ip_addr
-  config_patches = [
-    yamlencode({
-      machine = {
-        install = {
-          disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
-        }
+config_patches = [
+  yamlencode({
+    machine = {
+      install = {
+        disk  = "/dev/vda"
+        image = "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5"
       }
-    })
-  ]
+      kubelet = {
+        extraMounts = [
+          {
+            destination = "/var/lib/longhorn"
+            type        = "bind"
+            source      = "/var/lib/longhorn"
+            options     = ["bind", "rshared", "rw"]
+          }
+        ]
+      }
+    }
+  })
+]
 }
 
 resource "talos_machine_configuration_apply" "cp03_config_apply" {
@@ -55,16 +75,26 @@ resource "talos_machine_configuration_apply" "cp03_config_apply" {
   machine_configuration_input = data.talos_machine_configuration.machineconfig_cp.machine_configuration
   count                       = 1
   node                        = var.talos_cp_03_ip_addr
-  config_patches = [
-    yamlencode({
-      machine = {
-        install = {
-          disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
-        }
+config_patches = [
+  yamlencode({
+    machine = {
+      install = {
+        disk  = "/dev/vda"
+        image = "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5"
       }
-    })
-  ]
+      kubelet = {
+        extraMounts = [
+          {
+            destination = "/var/lib/longhorn"
+            type        = "bind"
+            source      = "/var/lib/longhorn"
+            options     = ["bind", "rshared", "rw"]
+          }
+        ]
+      }
+    }
+  })
+]
 }
 
 data "talos_machine_configuration" "machineconfig_worker" {
@@ -80,16 +110,26 @@ resource "talos_machine_configuration_apply" "worker_config_apply" {
   machine_configuration_input = data.talos_machine_configuration.machineconfig_worker.machine_configuration
   count                       = 1
   node                        = var.talos_worker_01_ip_addr
-  config_patches = [
-    yamlencode({
-      machine = {
-        install = {
-          disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
-        }
+config_patches = [
+  yamlencode({
+    machine = {
+      install = {
+        disk  = "/dev/vda"
+        image = "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5"
       }
-    })
-  ]
+      kubelet = {
+        extraMounts = [
+          {
+            destination = "/var/lib/longhorn"
+            type        = "bind"
+            source      = "/var/lib/longhorn"
+            options     = ["bind", "rshared", "rw"]
+          }
+        ]
+      }
+    }
+  })
+]
 }
 
 resource "talos_machine_configuration_apply" "worker2_config_apply" {
@@ -98,16 +138,26 @@ resource "talos_machine_configuration_apply" "worker2_config_apply" {
   machine_configuration_input = data.talos_machine_configuration.machineconfig_worker.machine_configuration
   count                       = 1
   node                        = var.talos_worker_02_ip_addr
-  config_patches = [
-    yamlencode({
-      machine = {
-        install = {
-          disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
-        }
+config_patches = [
+  yamlencode({
+    machine = {
+      install = {
+        disk  = "/dev/vda"
+        image = "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5"
       }
-    })
-  ]
+      kubelet = {
+        extraMounts = [
+          {
+            destination = "/var/lib/longhorn"
+            type        = "bind"
+            source      = "/var/lib/longhorn"
+            options     = ["bind", "rshared", "rw"]
+          }
+        ]
+      }
+    }
+  })
+]
 }
 
 resource "talos_machine_configuration_apply" "worker3_config_apply" {
@@ -116,16 +166,26 @@ resource "talos_machine_configuration_apply" "worker3_config_apply" {
   machine_configuration_input = data.talos_machine_configuration.machineconfig_worker.machine_configuration
   count                       = 1
   node                        = var.talos_worker_03_ip_addr
-  config_patches = [
-    yamlencode({
-      machine = {
-        install = {
-          disk = "/dev/vda"
-          image: "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5" 
-        }
+config_patches = [
+  yamlencode({
+    machine = {
+      install = {
+        disk  = "/dev/vda"
+        image = "factory.talos.dev/nocloud-installer/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b:v1.10.5"
       }
-    })
-  ]
+      kubelet = {
+        extraMounts = [
+          {
+            destination = "/var/lib/longhorn"
+            type        = "bind"
+            source      = "/var/lib/longhorn"
+            options     = ["bind", "rshared", "rw"]
+          }
+        ]
+      }
+    }
+  })
+]
 }
 
 resource "talos_machine_bootstrap" "bootstrap" {
