@@ -2,6 +2,10 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: longhorn
+  annotations:
+    argocd.argoproj.io/sync-options: Replace=true
+    # Optional: make it the default SC
+    storageclass.kubernetes.io/is-default-class: "true"
 provisioner: driver.longhorn.io
 allowVolumeExpansion: true
 parameters:
