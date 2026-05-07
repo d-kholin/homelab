@@ -1,2 +1,0 @@
-Run the following command in this directory to install nginx with the correct load balancer IP.
-`helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx  --create-namespace -f values.yaml`
