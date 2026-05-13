@@ -4,6 +4,13 @@ All infrastructure changes are documented here. Format follows [Keep a Changelog
 
 ---
 
+## [2026-05-12]
+
+### Changed
+- Updated Pangolin to v1.18.3.
+
+---
+
 ## [2026-05-11]
 
 ### Added
